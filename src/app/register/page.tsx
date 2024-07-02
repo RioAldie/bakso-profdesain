@@ -1,10 +1,14 @@
+'use client';
+import { createAccount } from '@/lib/actions';
 import Link from 'next/link';
 import React from 'react';
 
 const RegisterPage = () => {
   return (
     <main className=" p-24">
-      <form className="max-w-sm mx-auto">
+      <form
+        action={(formData) => createAccount(formData)}
+        className="max-w-sm mx-auto">
         <h2 className="text-2xl text-red-500">Daftar Akun</h2>
         <div className="mb-5">
           <label
@@ -15,6 +19,7 @@ const RegisterPage = () => {
           <input
             type="username"
             id="username"
+            name="username"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:focus:ring-red-500 dark:focus:border-red-500"
             placeholder=""
             required
@@ -29,6 +34,7 @@ const RegisterPage = () => {
           <input
             type="password"
             id="password"
+            name="password"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5  dark:focus:ring-red-500 dark:focus:border-red-500"
             required
           />

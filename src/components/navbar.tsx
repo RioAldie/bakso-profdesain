@@ -8,8 +8,10 @@ import {
 } from '@heroicons/react/24/solid';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useAuth } from '@/context/authContext';
 
 const Navbar = () => {
+  const { userId } = useAuth();
   const [dropdown, setDropdown] = useState(false);
   return (
     <nav className="bg-white border-gray-200 ">
@@ -125,14 +127,25 @@ const Navbar = () => {
                   Order
                 </button>
               </Link>{' '}
-              <Link href={'/login'}>
-                <button
-                  type="button"
-                  className="text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm text-center inline-flex items-center me-2 py-2 px-3 gap-2">
-                  <UserIcon className="size-4 text-white" />
-                  Login
-                </button>
-              </Link>
+              {!userId ? (
+                <Link href={'/login'}>
+                  <button
+                    type="button"
+                    className="text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm text-center inline-flex items-center me-2 py-2 px-3 gap-2">
+                    <UserIcon className="size-4 text-white" />
+                    Login
+                  </button>
+                </Link>
+              ) : (
+                <Link href={'/profile'}>
+                  <button
+                    type="button"
+                    className="text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm text-center inline-flex items-center me-2 py-2 px-3 gap-2">
+                    <UserIcon className="size-4 text-white" />
+                    Profile
+                  </button>
+                </Link>
+              )}
             </li>
           </ul>
         </div>

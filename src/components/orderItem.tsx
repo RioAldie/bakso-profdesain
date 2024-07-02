@@ -12,20 +12,20 @@ const OrderItem = ({
   updatePortion,
 }: {
   food: any;
-  updatePortion: (name: string, value: number) => void;
+  updatePortion: (id: string, value: number) => void;
 }) => {
   const [value, setValue] = useState(0);
 
   const handleDecrement = () => {
     if (value > 0) {
       setValue(value - 1);
-      updatePortion(food.name, value - 1);
+      updatePortion(food.id, value - 1);
     }
   };
   const handleIncrement = () => {
     if (value < 10) {
       setValue(value + 1);
-      updatePortion(food.name, value + 1);
+      updatePortion(food.id, value + 1);
     }
   };
 
