@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <nav className="bg-white border-gray-200 ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link href="#" className="flex items-center ">
+        <Link href="/" className="flex items-center ">
           <Image
             src="/icons/bakso-logo.svg"
             alt="bakso logo"
